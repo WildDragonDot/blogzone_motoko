@@ -1,0 +1,29 @@
+{
+  "canisters": {
+    "blogzone_backend": {
+      "main": "src/blogzone_backend/main.mo",
+      "type": "motoko"
+    },
+    "blogzone_frontend": {
+      "dependencies": [
+        "blogzone_backend"
+      ],
+      "frontend": {
+        "entrypoint": "src/blogzone_frontend/src/index.html"
+      },
+      "source": [
+        "src/blogzone_frontend/assets",
+        "dist/blogzone_frontend/"
+      ],
+      "type": "assets"
+    }
+  },
+  "defaults": {
+    "build": {
+      "args": "",
+      "packtool": ""
+    }
+  },
+  "output_env_file": ".env",
+  "version": 1
+}
