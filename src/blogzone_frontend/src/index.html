@@ -1,24 +1,365 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width" />
-    <title>blogzone</title>
-    <base href="/" />
-    <link rel="icon" href="favicon.ico" />
-    <link type="text/css" rel="stylesheet" href="main.css" />
-  </head>
-  <body>
-    <main>
-      <img src="logo2.svg" alt="DFINITY logo" />
-      <br />
-      <br />
-      <form action="#">
-        <label for="name">Enter your name: &nbsp;</label>
-        <input id="name" alt="Name" type="text" />
-        <button type="submit">Click Me!</button>
-      </form>
-      <section id="greeting"></section>
-    </main>
-  </body>
+
+<head>
+
+    <!-- Enter a proper page title here -->
+    <title>Blogzone</title>
+
+    <!-- CSS to include bootstrap -->
+    <link rel="stylesheet" href="/css/bootstrap.min.css">
+    <!-- css to include style.css -->
+    <link rel="stylesheet" href="/css/style.css">
+
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta content="width=device-width, initial-scale=1" name="viewport" />
+    <meta http-equiv="Content-Security-Policy" content="script-src 'self' 'unsafe-eval' 'unsafe-inline'">
+
+    <!-- required meta tags essential for seo and link sharing -->
+
+    <!-- Enter a proper description for the page in the meta description tag -->
+    <meta name="description" content="Blogzone">
+
+    <!-- Enter a keywords for the page in tag -->
+    <meta name="Keywords" content="Blogzone,blog">
+
+    <!-- Enter Page title -->
+    <meta property="og:title" content="Blogzone" />
+
+    <!-- Enter Page URL -->
+    <meta property="og:url" content="ENTER_PAGE_URL" />
+
+    <!-- Enter page description -->
+    <meta property="og:description" content="Blogzone">
+
+    <!-- Enter Logo image URL for example : http://cryptonite.finstreet.in/images/cryptonitepost.png -->
+    <meta property="og:image" itemprop="image" content="ENTER_IMAGE_URL" />
+    <meta property="og:image:secure_url" itemprop="image" content="ENTER_IMAGE_URL" />
+    <meta property="og:image:width" content="600">
+    <meta property="og:image:height" content="315">
+    <meta property="og:type" content="website" />
+
+    <!-- Favicon location for example :  images/cropped-Fin-270x270.jpg -->
+    <link rel="icon" href="images/favicon.ico">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.4.0/css/font-awesome.min.css">
+    <style>
+        html {
+            --scrollbarBG: #CFD8DC;
+            --thumbBG: #90A4AE;
+        }
+
+        .res {
+            overflow-y: scroll;
+        }
+
+        .res::-webkit-scrollbar {
+            width: 11px;
+        }
+
+        .res {
+            scrollbar-width: thin;
+            scrollbar-color: var(--thumbBG) var(--scrollbarBG);
+        }
+
+        .res::-webkit-scrollbar-track {
+            background: var(--scrollbarBG);
+        }
+
+        .res::-webkit-scrollbar-thumb {
+            background-color: var(--thumbBG);
+            border-radius: 6px;
+            border: 3px solid var(--scrollbarBG);
+        }
+
+
+        html {
+            background: lightgrey;
+            overflow: hidden;
+        }
+
+        body {
+            height: 100vh;
+            background: whitesmoke;
+            overflow-y: auto;
+            margin: 0 auto;
+            font: 100%/1.4 serif;
+            border: 1px solid rgba(0, 0, 0, 0.25)
+        }
+
+        p {
+            margin: 0 0 1.5em;
+        }
+
+        * {
+            box-sizing: border-box;
+        }
+
+        div#editor {
+            width: 100%;
+            margin: auto;
+            text-align: left;
+        }
+
+        .ss {
+            background-color: red;
+        }
+
+        body {
+
+            background: #d8dbd6;
+
+        }
+
+        .toppanel {
+            background: #000e66;
+
+        }
+
+        .settop {
+            z-index: 999;
+
+        }
+
+        .setback {
+            z-index: 0;
+        }
+
+        .bottompanel {
+            margin-top: -1%;
+        }
+
+        #copy {
+            font-size: 1.5rem;
+            cursor: pointer;
+            color: red;
+        }
+
+        #copy:hover {
+            transform: scale(1.2);
+            transition: all 0.5s ease-in-out;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.19), 0 6px 6px rgba(0, 0, 0, 0.23);
+        }
+
+        .headingText {
+            padding: 3rem;
+        }
+
+        .tcode {
+            margin-left: 2rem;
+            margin-right: 2rem;
+        }
+
+        .setImage {
+            height: 80px;
+            width: 80px;
+        }
+
+        /* mobile ui end  */
+        .footer {
+            position: relative;
+            bottom: 0;
+            width: 100%;
+            /* Set the fixed height of the footer here */
+            line-height: 40px;
+            /* Vertically center the text there */
+            background-color: #f5f5f5;
+        }
+
+        .ck-editor__editable_inline {
+            min-height: 350px;
+            max-height: 350px;
+        }
+
+        /* mobile ui start  */
+        @media only screen and (max-width: 991px) {
+            .headingText {
+                padding: 1rem;
+            }
+
+            #copy {
+                margin: 1rem;
+                font-size: 2rem;
+            }
+
+            .tcopy {
+                margin-top: 2rem;
+            }
+
+            .tcode {
+                margin-left: 0rem;
+                margin-right: 0rem;
+            }
+
+            .setImage {
+                height: 4rem;
+                width: 4rem;
+            }
+
+            .settext {
+                padding: 1rem;
+            }
+
+            .footer {
+                position: relative;
+            }
+        }
+
+        .res {
+            overflow-y: scroll;
+            position: relative;
+            height: 70vh;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="toppanel">
+        <div class="container">
+            <div class="row">
+                <div class="col">
+                    <h1 class="text-center headingText text-white"><span><img src="images/wh.png"
+                                class="setImage"></span><span class="font-weight-bold">Blog</span>zone
+                    </h1>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="bottompanel pb-5">
+        <div class="container-fluid">
+            <div class="row mx-4">
+                <div class="col-xl-6 col-lg-6 col-md-12 col-sm-12 shadow bg-white rounded py-4">
+                    <form>
+                        <div class="form-group">
+                            <label for="title">Article Title</label>
+                            <input type="text" class="form-control" id="title" name="title" aria-describedby="title"
+                                placeholder="Title" required="required">
+                            <small id="title" class="form-text text-muted">* Enter a valid title</small>
+                        </div>
+                        <div id="editor" class="py-5 px-3 editor">
+                        </div>
+
+                        <div class="d-flex justify-content-center">
+                            <button id="submit" class="btn btn-success btn-lg mt-3 text-center w-100">Post</button>
+                        </div>
+                    </form>
+                </div>
+                <div class="col-xl-6 col-lg-6 col-md-12 col-sm-12">
+                    <div class="row res" id="card-container">
+                        <div class="col-md-6 col-sm-6 content-card">
+                            <div class="card-big-shadow">
+                                <div class="card card-just-text" data-background="color" data-color="blue"
+                                    data-radius="none">
+                                    <div class="content">
+                                        <h6 class="category">09/08/2014, 2:35:56 AM</h6>
+                                        <h4 class="title"><a href="#">Card title</a></h4>
+                                        <p class="description">What all of these have in common is that they're pulling
+                                            information out of the app or the service and making it relevant to the
+                                            moment. </p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- <div class="col-md-6 col-sm-6 content-card">
+                            <div class="card-big-shadow">
+                                <div class="card card-just-text" data-background="color" data-color="green"
+                                    data-radius="none">
+                                    <div class="content">
+                                        <h6 class="category">Best cards</h6>
+                                        <h4 class="title"><a href="#">Green Card</a></h4>
+                                        <p class="description">What all of these have in common is that they're pulling
+                                            information out of the app or the service and making it relevant to the
+                                            moment. </p>
+                                    </div>
+                                </div> 
+                            </div>
+                        </div>
+
+                        <div class="col-md-6 col-sm-6 content-card">
+                            <div class="card-big-shadow">
+                                <div class="card card-just-text" data-background="color" data-color="yellow"
+                                    data-radius="none">
+                                    <div class="content">
+                                        <h6 class="category">Best cards</h6>
+                                        <h4 class="title"><a href="#">Yellow Card</a></h4>
+                                        <p class="description">What all of these have in common is that they're pulling
+                                            information out of the app or the service and making it relevant to the
+                                            moment. </p>
+                                    </div>
+                                </div> 
+                            </div>
+                        </div>
+
+                        <div class="col-md-6 col-sm-6 content-card">
+                            <div class="card-big-shadow">
+                                <div class="card card-just-text" data-background="color" data-color="brown"
+                                    data-radius="none">
+                                    <div class="content">
+                                        <h6 class="category">Best cards</h6>
+                                        <h4 class="title"><a href="#">Brown Card</a></h4>
+                                        <p class="description">What all of these have in common is that they're pulling
+                                            information out of the app or the service and making it relevant to the
+                                            moment. </p>
+                                    </div>
+                                </div> 
+                            </div>
+                        </div>
+
+                        <div class="col-md-6 col-sm-6 content-card">
+                            <div class="card-big-shadow">
+                                <div class="card card-just-text" data-background="color" data-color="purple"
+                                    data-radius="none">
+                                    <div class="content">
+                                        <h6 class="category">Best cards</h6>
+                                        <h4 class="title"><a href="#">Purple Card</a></h4>
+                                        <p class="description">What all of these have in common is that they're pulling
+                                            information out of the app or the service and making it relevant to the
+                                            moment. </p>
+                                    </div>
+                                </div> 
+                            </div>
+                        </div>
+
+                        <div class="col-md-6 col-sm-6 content-card">
+                            <div class="card-big-shadow">
+                                <div class="card card-just-text" data-background="color" data-color="orange"
+                                    data-radius="none">
+                                    <div class="content">
+                                        <h6 class="category">Best cards</h6>
+                                        <h4 class="title"><a href="#">Orange Card</a></h4>
+                                        <p class="description">What all of these have in common is that they're pulling
+                                            information out of the app or the service and making it relevant to the
+                                            moment. </p>
+                                    </div>
+                                </div> 
+                            </div>
+                        </div> -->
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <footer class="footer">
+        <div class="container">
+            <div class="row">
+                <div class="col-12 text-center py-2">
+                    <span class="text-muted">Copyright © 2023 All Right Reserved.</span>
+                    <span class="text-muted"> Developed By <a rel="nofollow" href="https://github.com/WildDragonDot"
+                            target="_blank" style="color:cornflowerblue !important">WildDragonDot</a>
+                    </span>
+                </div>
+
+            </div>
+
+        </div>
+    </footer>
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="/js/jquery-3.6.0.min.js"></script>
+    <script src="/js/bootstrap.min.js"></script>
+    <script src="/ck/build/ckeditor.js"></script>
+    <script src="/js/jquery.copy-to-clipboard.js"></script>
+</body>
+
 </html>
